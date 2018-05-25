@@ -5,14 +5,10 @@ const PHOTO_URL = "https://picsum.photos/200?photo=";
 const PHOTO_LIST_URL = "https://picsum.photos/list";
 
 class App extends Component {
- 
-  constructor(props) {
-    super(props);
-    this.state = {
-      photos: []
-    };
-  }
-
+  state = {
+    photos: []
+  };
+  
   componentDidMount() {
     fetch(PHOTO_LIST_URL)
     .then(response => response.json())
@@ -21,7 +17,7 @@ class App extends Component {
       console.log('Error happened during fetch', err);
     });
   }
-      
+
   render() {
     const { photos = [] } = this.state;
     return (
